@@ -1,10 +1,2 @@
-#include <stdio.h>
-/*
-*main entry point
-*always return zero
-*/
-
-int main(void)
-{
-	return (0);
-}
+#!/bin/bash
+gcc $CFILE -E -o c
