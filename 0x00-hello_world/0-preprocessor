@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc $CFILE -Werror -Wextra -pedantic -std   c
+gcc -E $CFILE o c
