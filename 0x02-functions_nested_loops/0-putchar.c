@@ -1,4 +1,5 @@
-#include<main.h>
+#include<stdio.h>
+#include"main.h"
 /**
  * Main function
  * Returns(0)
