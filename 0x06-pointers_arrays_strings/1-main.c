@@ -1,27 +1,26 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- * _strncat - appends src to the dest string
- * @dest: string to append by src
- * @src: string to append to dest
- * @n: largest number of bytes to append
+ * main - check the code
  *
- * Return: address of dest
+ * Return: Always 0.
  */
-char *_strncat(char *dest, char *src, int n)
+int main(void)
 {
-	int i, j;
+	char s1[98] = "Hello ";
+	char s2[] = "World!\n";
+	char *ptr;
 
-	i = j = 0;
-	while (*(dest + i))
-		i++;
-	while (j < n && *(src + j))
-	{
-		*(dest + i) = *(src + j);
-		i++;
-		j++;
-	}
-	if (j < n)
-	*(dest + i) = *(src + j);
-	return (dest);
+	printf("%s\n", s1);
+	printf("%s", s2);
+	ptr = _strncat(s1, s2, 1);
+	printf("%s\n", s1);
+	printf("%s", s2);
+	printf("%s\n", ptr);
+	ptr = _strncat(s1, s2, 1024);
+	printf("%s", s1);
+	printf("%s", s2);
+	printf("%s", ptr);
+	return (0);
 }
