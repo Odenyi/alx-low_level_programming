@@ -1,13 +1,18 @@
 #include "main.h"
 /**
- * _isupper - check the code for Holberton School students.
- * @c: Character input
- *Return: Always 0.
+ * _isupper - checks for uppercase character
+ *@c: int
+ *Return: 1 if upper, 0 other
  */
+
 int _isupper(int c)
 {
-	if (c >= 'A' && c <= 'Z')
+char alpha;
+for (alpha = 'A'; alpha <= 'Z'; alpha++)
+{
+	if (c == alpha)
 		return (1);
-	else
-		return (0);
+}
+
+return (0);
 }
