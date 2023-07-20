@@ -1,65 +1,47 @@
 #include "main.h"
+
 /**
- * print_number - prints an integer
- * @n: number to be printed
+ * print_number - Function that prints an integer.
+ * @n: int type number
+ * Description: Can only use _putchar to print.
  */
 void print_number(int n)
 {
-	int num;
-	int factor = 0;
-	int i;
-	int digit;
-	int last_digit;
+	long m; /* power of 10 */
+	int c; /* boolean check */
+	long num; /* convert int to long */
 
-	digit = digit_num(n);
-	if (digit == 0)
-		_putchar('0' + n);
-	else if (digit > 0)
+	num = n;
+	/* negatives */
+	if (num < 0)
 	{
-		if (n < 0)
-			_putchar('-');
-		for (i = digit - 1; i >= 1; i--)
-		{
-			factor = ten_to_power(i);
-			num = (n / factor) % 10;
-			if (num < 0)
-				num = -num;
-			_putchar('0' + num);
-		}
-		if (n < 0)
-			last_digit = -(n % 10);
+		num *= -1;
+		_putchar('-');
+	}
+
+	/* count up */
+	m = 1;
+	c = 1;
+	while (c)
+	{
+		if (num / (m * 10) > 0)
+			m *= 10;
 		else
-			last_digit = n % 10;
-		_putchar('0' + last_digit);
+			c = 0;
 	}
-}
-/**
- * digit_num - find how many digits in a number
- * @n: the number to be check
- * Return: return the number of digit
- */
-int digit_num(int n)
-{
-	int count = 0;
 
-	while (n != 0)
+	/* count down */
+	while (num >= 0)
 	{
-		count++;
-		n = n / 10;
+		if (m == 1)
+		{
+			_putchar(num % 10 + '0');
+			num = -1;
+		}
+		else
+		{
+			_putchar((num / m % 10) + '0');
+			m /= 10;
+		}
 	}
-	return (count);
-}
-/**
- * ten_to_power - get the value of 10 to the n power
- * @n: the number of power
- * Return: return the result
- */
-int ten_to_power(int n)
-{
-	int result = 10;
-	int i;
-
-	for (i = 1; i < n; i++)
-		result = result * 10;
-	return (result);
 }
